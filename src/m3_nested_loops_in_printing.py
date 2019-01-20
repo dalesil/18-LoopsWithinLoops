@@ -123,7 +123,7 @@ def triangle_of_stars(r):
 
     for k in range(r):
         for j in range(1, 2 + k):
-            print(r ,end='')
+            print('*' ,end='')
         print()
 
 
@@ -159,7 +159,7 @@ def decreasing_exclamation_marks(m, n):
     Precondition:  m and n are positive integers with m >= n.
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -168,10 +168,12 @@ def decreasing_exclamation_marks(m, n):
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
 
-    for j in range(n+1):
-        for k in range(m, n):
-            print('!', end='')
-        print()
+    for j in range(0, m):
+        if (j <= (m-n)):
+            for k in range(0, m):
+                if (j <= k):
+                    print('!', end='')
+            print()
 
 def run_test_alternating_brackets():
     """ Tests the    alternating_brackets    function. """
@@ -205,7 +207,7 @@ def alternating_brackets(m, n):
     Precondition:  m and n are positive integers with m >= n.
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -213,6 +215,20 @@ def alternating_brackets(m, n):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+
+    is_left_bracket = True
+    for j in range(0, m):
+        if (j <= (m-n)):
+            for k in range(0, m):
+                if (j <= k):
+                    if is_left_bracket == True:
+                        print('[', end='')
+                        is_left_bracket = False
+                    else:
+                        print(']', end='')
+                        is_left_bracket = True
+            print()
+            is_left_bracket = True
 
 
 def run_test_triangle_same_number_in_each_row():
