@@ -301,11 +301,8 @@ def print_characters_slanted(sequence_of_strings):
     for j in range(len(sequence_of_strings)):
         s = sequence_of_strings[j]
         for k in range(len(s)):
-
             for j in range(k):
                 print(' ', end='')
-
-
             print(s[k])
         print()
 
