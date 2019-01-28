@@ -80,10 +80,23 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    for j in range(r+3):
+        if j<r:
+            for k in range(3):
+                c1 = rg.Circle(rg.Point(circle.center.x + k * circle.radius * 2, circle.center.y + j * circle.radius * 2), circle.radius)
+                c1.fill_color = circle.fill_color
+                c1.attach_to(window)
+                window.render()
+        else:
+            for n in range(c+3):
+                c1 = rg.Circle(rg.Point(circle.center.x + n * circle.radius * 2, circle.center.y + j * circle.radius * 2), circle.radius)
+                c1.fill_color = circle.fill_color
+                c1.attach_to(window)
+                window.render()
 
 def run_test_draw_wall_on_right():
     """ Tests the    draw_wall_on_right    function. """
@@ -121,10 +134,19 @@ def draw_wall_on_right(rectangle, n, window):
     and n is a small, positive integer.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    rech = rectangle.get_height()
+    recw = rectangle.get_width()
+    p1 = rectangle.get_upper_left_corner()
+    p2 = rectangle.get_lower_right_corner()
+    for j in range(n):
+        for k in range(j+1):
+            rec1 = rg.Rectangle(rg.Point(p1.x - k * recw, p1.y + j * rech), rg.Point(p2.x - k * recw, p2.y + j * rech))
+            rec1.attach_to(window)
+            window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
